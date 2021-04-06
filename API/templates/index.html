@@ -1,0 +1,43 @@
+<html>
+<head>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="feed">
+                <h3 class="mt-5">Live Streaming</h3>
+                <img src="{{ url_for('video_feed') }}" width="100%">
+            </div>
+            <br>
+            <div class="motion_control">
+                <p>buttons here</p>
+                <button type="submit"  id="mUP" onclick="holdit(up, )">Front</button>
+                <button type="submit" id="mDown" onclick="javascript:send()">Back</button>
+                <button type="submit" id="mLeft" onclick="javascript:send()">Left</button>
+                <button type="submit" id="mRight" onclick="javascript:send()">Right</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var up = document.getElementById('mUP');
+        function holdit(btn, action, start, speedup) {
+    var t;
+
+    var repeat = function () {
+        action();
+        t = setTimeout(repeat, start);
+        start = start / speedup;
+    }
+
+    btn.mousedown = function() {
+        repeat();
+    }
+
+    btn.mouseup = function () {
+        clearTimeout(t);
+    }
+};
+    </script>
+    </body>
+</html>
