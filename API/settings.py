@@ -4,4 +4,4 @@ camera_port = 5002
 cameram_port = 5003
 
 #camera
-camera_slot = 0
+camera_slot = -1
