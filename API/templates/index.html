@@ -11,6 +11,17 @@
             </div>
             <br>
             <div class="motion_control">
+                <form>
+                    
+                      
+                      <input type="text"  id="Input1" name="Input1"/>
+                      
+                      <input type="text"  name="Input2" id="Input2" />
+                      
+                      <input type="text"  name="Input3"  id="Input3" />
+
+                   
+                  </form>
                 <p>buttons here</p>
                 <button type="submit"  id="mUP" onclick=holdit(up,upAPI(),1000,2)>Front</button>
                 <button type="submit" id="mDown" onclick=holdit(down,downAPI(),1000,2)>Back</button>
@@ -24,7 +35,10 @@
         var down = document.getElementById('mDown');
         var left = document.getElementById('mLeft');
         var right = document.getElementById('mRight');
-
+        
+        var input2 = document.getElementById('Input2').value;
+        var input3 = document.getElementById('Input3').value;
+        var inputsub = document.getElementById('input-sub');
         function holdit(btn, action, start, speedup) {
     var t;
     var repeat = function () {
@@ -41,7 +55,8 @@
 };
     
     function upAPI(){
-        fetch('http://127.0.0.1:5001/up')
+        var input1 = document.getElementById('Input1').value;
+        fetch(`http://${input1}/up`)
   .then(response => response.json())
   .then(data => console.log(data));
     }
