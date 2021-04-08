@@ -7,7 +7,7 @@
         <div class="row">
             <div class="feed">
                 <h3 class="mt-5">Live Streaming</h3>
-                <img src="{{ url_for('video_feed') }}" width="100%">
+                <img src="http://localhost:5002/video_feed" width="100%">
             </div>
             <br>
             <div class="motion_control">
@@ -41,25 +41,25 @@
 };
     
     function upAPI(){
-        fetch('http://localhost:5000/up')
+        fetch('http://localhost:5001/up')
   .then(response => response.json())
   .then(data => console.log(data));
     }
 
     function downAPI(){
-        fetch('http://localhost:5000/down')
+        fetch('http://localhost:5001/down')
   .then(response => response.json())
   .then(data => console.log(data));
     }
 
     function leftAPI(){
-        fetch('http://localhost:5000/left')
+        fetch('http://localhost:5001/left')
   .then(response => response.json())
   .then(data => console.log(data));
     }
 
     function rightAPI(){
-        fetch('http://localhost:5000/right')
+        fetch('http://localhost:5001/right')
   .then(response => response.json())
   .then(data => console.log(data));
     }
