@@ -11,7 +11,7 @@
             </div>
             <br>
             <div class="motion_control">
-                <form>
+                <form onsubmit="return false">
                     
                       
                       <input type="text"  id="Input1" name="Input1"/>
@@ -20,7 +20,7 @@
                       
                       <input type="text"  name="Input3"  id="Input3" />
 
-                   
+                      <button type="submit"  id="input-submit"  >Set Values</button>
                   </form>
                 <p>buttons here</p>
                 <button type="submit"  id="mUP" onclick=holdit(up,upAPI(),1000,2)>Front</button>
@@ -35,10 +35,10 @@
         var down = document.getElementById('mDown');
         var left = document.getElementById('mLeft');
         var right = document.getElementById('mRight');
-        
         var input2 = document.getElementById('Input2').value;
         var input3 = document.getElementById('Input3').value;
         var inputsub = document.getElementById('input-sub');
+        
         function holdit(btn, action, start, speedup) {
     var t;
     var repeat = function () {
@@ -53,6 +53,8 @@
         clearTimeout(t);
     }
 };
+
+    
     
     function upAPI(){
         var input1 = document.getElementById('Input1').value;
@@ -62,19 +64,22 @@
     }
 
     function downAPI(){
-        fetch('http://127.0.0.1:5001/down')
+        var input1 = document.getElementById('Input1').value;
+        fetch(`http://${input1}/down`)
   .then(response => response.json())
   .then(data => console.log(data));
     }
 
     function leftAPI(){
-        fetch('http://127.0.0.1:5001/left')
+        var input1 = document.getElementById('Input1').value;
+        fetch(`http://${input1}/left`)
   .then(response => response.json())
   .then(data => console.log(data));
     }
 
     function rightAPI(){
-        fetch('http://127.0.0.1:5001/right')
+        var input1 = document.getElementById('Input1').value;
+        fetch(`http://${input1}/right`)
   .then(response => response.json())
   .then(data => console.log(data));
     }
